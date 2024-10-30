@@ -30,6 +30,34 @@ entries:
     - https://github.com/mayankshah1607/charts-test/releases/download/everest-1.3.0-rc2/everest-1.3.0-rc2.tgz
     version: 1.3.0-rc2
   - apiVersion: v2
+    appVersion: 1.3.0-rc2
+    created: "2024-10-30T13:23:56.877536067Z"
+    dependencies:
+    - name: common
+      repository: file://charts/common
+      version: 0.0.*
+    - condition: everest-db-namespace.enabled
+      name: everest-db-namespace
+      repository: file://charts/everest-db-namespace
+      version: 1.3.0-rc2
+    description: A cloud-native database platform
+    digest: 83ca89432bbaba26e74dd9f41b8d9df748bee1c85d33f1c4a51267849308f8a7
+    kubeVersion: '>= 1.27.0'
+    maintainers:
+    - email: mayank.shah@percona.com
+      name: mayankshah1607
+    - email: oksana.grishchenko@percona.com
+      name: oksana-grishchenko
+    - email: diogo.recharte@percona.com
+      name: recharte
+    - email: michal.kralik@percona.com
+      name: michal-kralik
+    name: everest
+    type: application
+    urls:
+    - https://github.com/mayankshah1607/charts-test/releases/download/everest-1.3.0-rc2/everest-1.3.0-rc2.tgz
+    version: 1.3.0-rc2
+  - apiVersion: v2
     appVersion: 1.2.0
     created: "2024-10-30T13:09:27.856841299Z"
     dependencies:
@@ -57,4 +85,4 @@ entries:
     urls:
     - https://github.com/mayankshah1607/charts-test/releases/download/everest-1.2.0/everest-1.2.0.tgz
     version: 1.2.0
-generated: "2024-10-30T13:12:50.609755608Z"
+generated: "2024-10-30T13:23:56.877553949Z"
