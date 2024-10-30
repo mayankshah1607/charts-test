@@ -21,9 +21,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            charts/everest
 
       - name: Configure Git
         run: |
@@ -33,13 +30,13 @@ jobs:
       - name: Prepare RC
         if: ${{ env.IS_RC == '1' }}
         run: |
-          cd charts/everest
+          cd charts/my-app
           make release-dev
 
       - name: Prepare release
         if: ${{ env.IS_RC == '0' }}
         run: |
-          cd charts/everest
+          cd charts/my-app
           make release
 
       - name: Install Helm
