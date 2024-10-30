@@ -30,13 +30,13 @@ jobs:
       - name: Prepare RC
         if: ${{ env.IS_RC == '1' }}
         run: |
-          cd charts/my-app
+          cd charts/everest
           make release-dev
 
       - name: Prepare release
         if: ${{ env.IS_RC == '0' }}
         run: |
-          cd charts/my-app
+          cd charts/everest
           make release
 
       - name: Install Helm
