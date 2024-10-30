@@ -3,6 +3,7 @@ prepare-chart:
 	for chart in $$CHART_FILES; do \
 		yq eval -i '.version = "${VERSION}"' $$chart; \
 		yq eval -i '.appVersion = "${VERSION}"' $$chart; \
+	done
 
 
 release: prepare-chart
