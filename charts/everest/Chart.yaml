@@ -4,7 +4,7 @@ description: A cloud-native database platform
 version: 0.0.0
 appVersion: 0.0.0
 type: application
-kubeVersion: '>= 1.27.0'
+kubeVersion: '>= 1.27.0-0'
 maintainers:
   - name: mayankshah1607
     email: mayank.shah@percona.com
@@ -25,3 +25,12 @@ dependencies:
     version: 0.0.0
     repository: "file://charts/everest-db-namespace"
     condition: "everest-db-namespace.enabled"
+  - name: kube-state-metrics
+    repository: https://prometheus-community.github.io/helm-charts
+    version: 5.27.0
+    condition: "kube-state-metrics.enabled"
+  - name: victoria-metrics-operator
+    alias: monitoring
+    version: 0.37.0
+    repository: "https://victoriametrics.github.io/helm-charts"
+    condition: "monitoring.enabled"

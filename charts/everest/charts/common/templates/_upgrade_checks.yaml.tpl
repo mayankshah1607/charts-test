@@ -31,6 +31,7 @@ spec:
               chmod -R 777 ./everestctl
               
               echo "Checking requirements for upgrade to version ${VERSION}"
+              ./everestctl upgrade --dry-run --version-metadata-url={{ .versionMetadataURL }}
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
       terminationGracePeriodSeconds: 30

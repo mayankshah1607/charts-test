@@ -1,0 +1,128 @@
+apiVersion: v1
+entries:
+  common:
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2024-11-21T21:04:23.10151+05:30"
+    description: A library chart for Everest containing common resources.
+    digest: 34f36c2f2fe4c2738827d0a365ae4900e44c851519ef077fdc981c0f65f7520d
+    maintainers:
+    - email: mayank.shah@percona.com
+      name: mayankshah1607
+    - email: oksana.grishchenko@percona.com
+      name: oksana-grishchenko
+    - email: diogo.recharte@percona.com
+      name: recharte
+    - email: michal.kralik@percona.com
+      name: michal-kralik
+    name: common
+    type: library
+    urls:
+    - charts/common-0.0.6.tgz
+    version: 0.0.6
+  everest-db-namespace:
+  - apiVersion: v2
+    appVersion: 1.3.0
+    created: "2024-11-21T21:04:23.101832+05:30"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 0.0.*
+    description: A sub-chart for provisioning Everest DB namespaces.
+    digest: 707eaeaea59d69fa0cd144e9b210cff4de5c9d40aa31d08d16ef492fe3c4cc94
+    kubeVersion: '>= 1.27.0-0'
+    maintainers:
+    - email: mayank.shah@percona.com
+      name: mayankshah1607
+    - email: oksana.grishchenko@percona.com
+      name: oksana-grishchenko
+    - email: diogo.recharte@percona.com
+      name: recharte
+    - email: michal.kralik@percona.com
+      name: michal-kralik
+    name: everest-db-namespace
+    type: application
+    urls:
+    - charts/everest-db-namespace-1.3.0.tgz
+    version: 1.3.0
+  kube-state-metrics:
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/prometheus-community/helm-charts
+    apiVersion: v2
+    appVersion: 2.14.0
+    created: "2024-11-21T21:04:23.102691+05:30"
+    description: Install kube-state-metrics to generate and expose cluster-level metrics
+    digest: 685f0a6c1ba6b545a92c2d8b7e4580b2000174cfc594039ef7f53952d1c30a4a
+    home: https://github.com/kubernetes/kube-state-metrics/
+    keywords:
+    - metric
+    - monitoring
+    - prometheus
+    - kubernetes
+    maintainers:
+    - email: tariq.ibrahim@mulesoft.com
+      name: tariq1890
+    - email: manuel@rueg.eu
+      name: mrueg
+    - email: david@0xdc.me
+      name: dotdc
+    name: kube-state-metrics
+    sources:
+    - https://github.com/kubernetes/kube-state-metrics/
+    type: application
+    urls:
+    - charts/kube-state-metrics-5.27.0.tgz
+    version: 5.27.0
+  victoria-metrics-operator:
+  - annotations:
+      artifacthub.io/category: monitoring-logging
+      artifacthub.io/changes: |
+        - Migrated to common templates
+        - updates operator to [v0.49.0](https://github.com/VictoriaMetrics/operator/releases/tag/v0.49.0) version
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Sources
+          url: https://github.com/VictoriaMetrics/helm-charts
+        - name: Charts repo
+          url: https://victoriametrics.github.io/helm-charts/
+        - name: Docs
+          url: https://docs.victoriametrics.com/operator
+      artifacthub.io/operator: "true"
+    apiVersion: v2
+    appVersion: v0.49.0
+    created: "2024-11-21T21:04:23.111615+05:30"
+    dependencies:
+    - name: victoria-metrics-common
+      repository: https://victoriametrics.github.io/helm-charts
+      version: 0.0.*
+    - condition: crds.plain
+      name: crds
+      repository: ""
+      version: 0.0.*
+    description: Victoria Metrics Operator
+    digest: 7ac6ea33bf0f23b9fc596ab225b4a11ba73c5adf49ed269b936be7e46fb49c55
+    home: https://github.com/VictoriaMetrics/operator
+    icon: https://avatars.githubusercontent.com/u/43720803?s=200&v=4
+    keywords:
+    - victoriametrics
+    - operator
+    - monitoring
+    - kubernetes
+    - observability
+    - tsdb
+    - metrics
+    - metricsql
+    - timeseries
+    kubeVersion: '>=1.25.0-0'
+    name: victoria-metrics-operator
+    sources:
+    - https://github.com/VictoriaMetrics/helm-charts
+    - https://github.com/VictoriaMetrics/operator
+    type: application
+    urls:
+    - charts/victoria-metrics-operator-0.37.0.tgz
+    version: 0.37.0
+generated: "2024-11-21T21:04:23.101247+05:30"

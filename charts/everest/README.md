@@ -63,11 +63,12 @@ The following table shows the configurable parameters of the Percona Everest cha
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| everest-db-namespace.enabled | bool | `false` | Do not enable. |
-| monitoring.namespace | string | `"everest-monitoring"` | Namespace where monitoring is installed. Do no change unless you know what you are doing. |
+| compatibility.openshift | bool | `false` | Enable OpenShift compatibility. If set, ignores olm.install and olm.namespace settings. |
+| createMonitoringResources | bool | `true` | If set, creates resources for Kubernetes monitoring. |
 | namespaceOverride | string | `""` | Namespace override. Defaults to the value of .Release.Namespace. |
 | olm.catalogSourceImage | string | `"perconalab/everest-catalog"` | Image to use for Everest CatalogSource. |
 | olm.image | string | `"quay.io/operator-framework/olm@sha256:1b6002156f568d722c29138575733591037c24b4bfabc67946f268ce4752c3e6"` | Image to use for the OLM components. |
+| olm.install | bool | `true` | If set, installs OLM in the provided namespace. |
 | olm.namespace | string | `"everest-olm"` | Namespace where OLM is installed. Do no change unless you know what you are doing. |
 | olm.packageserver.tls.caCert | string | `""` | CA certificate for the PackageServer APIService. Overrides the tls.type setting. |
 | olm.packageserver.tls.tlsCert | string | `""` | Client certificate for the PackageServer APIService. Overrides the tls.type setting. |
@@ -78,7 +79,9 @@ The following table shows the configurable parameters of the Percona Everest cha
 | operator.image | string | `"perconalab/everest-operator"` | Image to use for the Everest operator container. |
 | operator.metricsAddr | string | `"127.0.0.1:8080"` | Metrics address for the operator. |
 | operator.resources | object | `{"limits":{"cpu":"500m","memory":"128Mi"},"requests":{"cpu":"5m","memory":"64Mi"}}` | Resources to allocate for the operator container. |
+| server.apiRequestsRateLimit | int | `100` | Set the allowed number of requests per second. |
 | server.image | string | `"perconalab/everest"` | Image to use for the server container. |
+| server.initialAdminPassword | string | `""` | The initial password configured for the admin user. If unset, a random password is generated. It is strongly recommended to reset the admin password after installation. |
 | server.oidc | object | `{}` | OIDC configuration for Everest. |
 | server.rbac | string | `"g, admin, role:admin\n"` | RBAC policy for Everest. |
 | server.resources | object | `{"limits":{"cpu":"200m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"20Mi"}}` | Resources to allocate for the server container. |

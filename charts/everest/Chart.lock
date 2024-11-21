@@ -1,9 +1,15 @@
 dependencies:
 - name: common
   repository: file://charts/common
-  version: 0.0.2
+  version: 0.0.6
 - name: everest-db-namespace
   repository: file://charts/everest-db-namespace
   version: 0.0.0
-digest: sha256:c640ee1595ced2f8d4024f9f37b38d6ca685bc4edba9d451f9bcd56edc22ee23
-generated: "2024-10-30T18:21:11.406778+05:30"
+- name: kube-state-metrics
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 5.27.0
+- name: victoria-metrics-operator
+  repository: https://victoriametrics.github.io/helm-charts
+  version: 0.37.0
+digest: sha256:2ee205ab871b735bdb62026599e79de9107c72bc95af1bcc4b0cc7442dc47bd6
+generated: "2024-11-19T15:14:18.225172+05:30"
