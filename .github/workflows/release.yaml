@@ -51,3 +51,11 @@ jobs:
         uses: helm/chart-releaser-action@v1.6.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Release sub-chart
+        uses: helm/chart-releaser-action@v1.6.0
+        with:
+          charts_dir: charts/everest/charts
+          skip_existing: true
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
