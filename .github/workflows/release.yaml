@@ -1,9 +1,9 @@
-name: Chart Release
+name: Everest Chart Release
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version"
+        description: "Everest version"
         required: true
 jobs:
   release:
@@ -21,6 +21,9 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            charts/everest
 
       - name: Configure Git
         run: |
