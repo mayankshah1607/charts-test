@@ -109,6 +109,8 @@ createMonitoringResources: true
 monitoring:
   enabled: true
   namespaceOverride: everest-monitoring
+  selectorOverride:
+    app.kubernetes.io/name: kube-state-metrics
   fullnameOverride: vm-operator
   crds:
     enabled: false
